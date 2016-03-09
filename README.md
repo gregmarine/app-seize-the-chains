@@ -1,4 +1,4 @@
-# Discopolis
+# Seize the Chains
 
 Seize the Chains Disc Golf App Project
 

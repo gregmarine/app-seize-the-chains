@@ -1,23 +1,26 @@
 import {App, IonicApp, Platform} from 'ionic-angular';
+import {AuthService} from './providers/auth-service/auth-service';
 import {HomePage} from './pages/home/home';
-
+import {CoursesPage} from './pages/courses/courses';
 
 @App({
   templateUrl: 'build/app.html',
-  config: {} // http://ionicframework.com/docs/v2/api/config/Config/
+  config: {}, // http://ionicframework.com/docs/v2/api/config/Config/
+  providers: [
+    AuthService
+  ]
 })
 class MyApp {
   rootPage: any = HomePage;
   pages: Array<{title: string, component: any}>
 
-  constructor(private app: IonicApp, private platform: Platform) {
+  constructor(private app: IonicApp, private platform: Platform, private auth: AuthService) {
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage }
+      { title: 'Home', component: HomePage },
+      { title: 'Courses', component: CoursesPage }
     ];
-
   }
 
   initializeApp() {

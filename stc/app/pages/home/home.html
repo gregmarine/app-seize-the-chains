@@ -6,5 +6,27 @@
 </ion-navbar>
 
 <ion-content padding class="home">
+  <div *ngIf="!auth.isLoggedIn">
+
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="text" [(ngModel)]="model.email"></ion-input>
+    </ion-item>
   
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="model.password"></ion-input>
+    </ion-item>
+      
+    <button block (click)="auth.authWithPassword(model)">Login</button>
+    
+  </div>
+  
+  <div *ngIf="auth.isLoggedIn">
+    <button round medium (click)="openPage(coursesPage)">
+      <ion-icon name="map"></ion-icon>
+      Courses
+    </button>
+    
+  </div>
 </ion-content>
